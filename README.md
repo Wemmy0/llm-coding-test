@@ -11,10 +11,10 @@ around realisticly inside. The ball should be affected by gravity and its physic
 
 ## Results:
 
-|                    | DeepSeek R1 8b    | DeepSeek R1 14b   | DeepSeek R1 32b | DeepSeek R1 70b | DeepSeek R1 671b | ChatGPT o3-mini | Gemini 2.0 Flash (4000 output tok) | Gemini 2.0 Flash (8192 output tok) | Claude 3.5 Sonnet |
-|--------------------|-------------------|-------------------|-----------------|-----------------|------------------|-----------------|------------------------------------|------------------------------------|-------------------|
-| Runs?              | ❌ - Syntax Errors | ❌ - Syntax Errors | 🔶              | ✅               | ✅                | ✅               | ✅                                  | ✅                                  | ✅                 |
-| Realistic Physics? | -                 | -                 | ❌               | ❌               | ✅                | ✅               | ✅                                  | ❌                                  | ✅                 |
+|                    | DeepSeek R1 8b    | DeepSeek R1 14b   | DeepSeek R1 32b | DeepSeek R1 70b | DeepSeek R1 671b | ChatGPT o3-mini | Gemini 2.0 Flash Exp (4000 output tok) | Gemini 2.0 Flash Exp (8192 output tok) | Gemini 2.0 Pro Exp | Claude 3.5 Sonnet |
+|--------------------|-------------------|-------------------|-----------------|-----------------|------------------|-----------------|----------------------------------------|----------------------------------------|--------------------|-------------------|
+| Runs?              | ❌ - Syntax Errors | ❌ - Syntax Errors | 🔶              | ✅               | ✅                | ✅               | ✅                                      | ✅                                      | ✅                  | ✅                 |
+| Realistic Physics? | -                 | -                 | ❌               | ❌               | ✅                | ✅               | ✅                                      | ❌                                      | ✅                  | ✅                 |
 
 Realistically, I wasn't expecting DeepSeek R1 8b & 14b a good result, but still disapointing they
 don't produce valid python code
@@ -51,7 +51,7 @@ It produced decent physics however a bit bouncy. But overall, the result is very
 
 ![](https://raw.githubusercontent.com/Wemmy0/llm-coding-test/master/GIFs/ChatGPT%20o3-mini.gif)
 
-### Gemini 2.0 Flash
+### Gemini 2.0 Flash Exp
 
 Gemini had very realistic physics - despite it's lack of reasoning making it one of the fastest
 models to answer
@@ -62,12 +62,20 @@ However, ONLY if you limit it's output tokens to 4000. I tried 8192, and it was 
 
 ![](https://raw.githubusercontent.com/Wemmy0/llm-coding-test/master/GIFs/Gemini%202.0%20Flash.gif)
 
-### Gemini 2.0 Flash 8192 tok
+### Gemini 2.0 Flash Exp 8192 tok
 
 I have no idea why but this produces a very disappointing result. The ball clips through the hexagon
 and falls out of the hexagon
 
 ![](https://raw.githubusercontent.com/Wemmy0/llm-coding-test/master/GIFs/Gemini%202.0%20Flash%208192%20tok.gif)
+
+### Gemini 2.0 Pro Exp
+
+Output was just as good as the smaller Gemini 2.0 Flash but taking longer to answer.
+Seems like it suffers from the same problem. With a larger max output tokens, the worse the quality
+of the answer. At 4000 tok max output size, it provides a good quality answer on par with Claude,
+o3-mini, and Gemini 2.0 Flash
+
 
 ### Claude 3.5 Sonnet
 
